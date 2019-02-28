@@ -14,13 +14,16 @@ print('---------------------------------')
 for t in c:
     ct=int(t,16)
     cblock=decrypt.decryptDes(ct,k)
-    print('Cipher block {} :{:x}'.format(i,cblock))
+    print('Cipher block {} :{}'.format(i,t))
     pt.append('{:x}'.format(iv^cblock))   
     i+=1
+    print('IV {:x} cblock {:x}'.format(iv,cblock))
     iv=cblock
+
 print('---------------------------------')
 print('Plain Text Blocks:')
 for p in pt:
     print(p)
 print('----------------------------------')
 
+print('{:x}'.format(0xabababababababab ^ 0x1c2b539993da4abf^ 0x1c2b539993da4abf))
